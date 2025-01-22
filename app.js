@@ -1,7 +1,7 @@
 let boxes = document.querySelectorAll(".box");
 let resetBtn = document.querySelector("#reset-btn");
 let newGameBtn = document.querySelector("new-btn");
-let msgContainer = document.querySelector(".msg-container")
+let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
 
@@ -39,7 +39,7 @@ boxes.forEach((box) => {
 // For check Winner
 
 const showWinner = (winner) => {
-    msg.innerText=`Congratulations, Winner is ${winner}`;
+    msg.innerText = `Congratulations, Winner is ${winner}`;
     msgContainer.classList.remove("hide");
 }
 
@@ -53,7 +53,7 @@ const checkWinner = () => {
         if(pos1val != "" && pos2val != "" && pos3val != "") {
             if(pos1val === pos2val && pos2val === pos3val) {
                 console.log("winner", pos1val);
-                showWinner();
+                showWinner(pos1val);
             }
         }
     }
