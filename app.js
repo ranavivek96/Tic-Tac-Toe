@@ -38,9 +38,16 @@ boxes.forEach((box) => {
 
 // For check Winner
 
+const disableBoxes = () => {
+    for(let box of boxes) {
+        box.disabled = true;
+    }
+}
+
 const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
     msgContainer.classList.remove("hide");
+    disableBoxes();
 }
 
 const checkWinner = () => {
@@ -57,4 +64,11 @@ const checkWinner = () => {
             }
         }
     }
+}
+
+
+// Reset Game 
+
+const resetGame = () => {
+
 }
