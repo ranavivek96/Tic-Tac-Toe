@@ -1,6 +1,6 @@
 let boxes = document.querySelectorAll(".box");
 let resetBtn = document.querySelector("#reset-btn");
-let newGameBtn = document.querySelector("new-btn");
+let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
@@ -17,6 +17,15 @@ const winPatterns = [
     [3, 4, 5],
     [6, 7, 8],
 ];
+
+
+// Reset Game 
+
+const resetGame = () => {
+    turnO = true;
+    enableBoxes();
+    msgContainer.classList.add("hide");
+}
 
 // When the button is pressed, something will happen, so we add an event listener to each box.
 
@@ -36,13 +45,24 @@ boxes.forEach((box) => {
     })
 })
 
-// For check Winner
+// For disabled boxes when game is done 
 
 const disableBoxes = () => {
     for(let box of boxes) {
         box.disabled = true;
     }
 }
+
+// For enabled boxes when new game is start
+
+const enableBoxes = () => {
+    for(let box of boxes) {
+        box.disabled = false;
+        box.innerText = "";
+    }
+}
+
+// For check Winner
 
 const showWinner = (winner) => {
     msg.innerText = `Congratulations, Winner is ${winner}`;
@@ -66,9 +86,5 @@ const checkWinner = () => {
     }
 }
 
-
-// Reset Game 
-
-const resetGame = () => {
-
-}
+newGameBtn.addEventListener("click", resetGame);
+resetBtn.addEventListener("click", resetGame);
